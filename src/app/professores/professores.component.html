@@ -1,0 +1,40 @@
+<div class="container mt-5 main">
+  <div class="columns">
+    <div class="column">
+      <h1 class="title">Professores</h1>
+    </div>
+    <div class="column btn-novo">
+      <button class="button is-info" (click)="adicionarProfessor()">Novo Professor</button>
+    </div>
+  </div>
+  <table class="table is-bordered is-striped">
+    <thead>
+    <th>Nome</th>
+    <th>Idade</th>
+    <th>Salario</th>
+    <th>Endereco</th>
+    <th>Telefone</th>
+    <th>sexo</th>
+    <th>Area de Atuacao</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let professor of professores">
+      <td>{{professor.name}}</td>
+      <td>{{professor.idade}}</td>
+      <td>{{professor.salario}}</td>
+      <td>{{professor.endereco}}</td>
+      <td>{{professor.telefone}}</td>
+      <td>{{professor.sexo}}</td>
+      <td>{{professor.areaAtuacao}}</td>
+
+      <td>
+        <button class="button is-link" (click)="editarProfessor(professor)">Editar</button>
+        <button class="button is-danger" (click)="deletaProfessor(professor)">Excluir</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
