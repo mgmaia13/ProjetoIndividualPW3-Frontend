@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Professor} from "../model/professor";
 import {WebService} from "../web.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-professores',
@@ -12,9 +13,9 @@ import {WebService} from "../web.service";
 export class ProfessoresComponent {
 
   professores!: Professor[]
-
   constructor(
-    private web: WebService
+    private web: WebService,
+    private router: Router
   ){
   }
 
@@ -28,18 +29,26 @@ export class ProfessoresComponent {
   }
 
   adicionarProfessor() {
-    console.log("adicionaaa")
-
+    this.router.navigate(["cadastrar"])
   }
 
   editarProfessor(professor: Professor) {
-    console.log("editaaa")
+    this.router.navigate(["editar", professor.id])
   }
 
   deletaProfessor(professor: Professor) {
-    console.log("deleta")
+    this.web.deleteProfessorById(professor).subscribe((response) => {
+      if(response.ok){
+        alert("Deletado com sucesso!")
+        this.professores.forEach((professorGet) => {
+          if(professorGet.id == professor.id){
+            let index = this.professores.indexOf(professor)
+            this.professores.splice(index, 1)
+          }
+        })
+      }
+    })
   }
-
 }
 
 

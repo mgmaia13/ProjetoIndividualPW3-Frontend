@@ -5,16 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfessoresComponent } from './professores/professores.component';
 import {HttpClientModule} from "@angular/common/http";
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { EditarComponent } from './editar/editar.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfessoresComponent
+    ProfessoresComponent,
+    CadastrarComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

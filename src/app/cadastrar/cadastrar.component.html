@@ -1,0 +1,44 @@
+<div class="m-6">
+  <button class="button is-warning" routerLink="/professores">Voltar</button>
+  <form #salvarForm="ngForm" (submit)="salvarProfessor(salvarForm)">
+    <ng-template [ngIf]="professor != null">
+
+        <div class="field">
+          <label class="label">Nome do Professor</label>
+          <input type="text" class="input is-info" name="name" [(ngModel)]="professor.name" required>
+        </div>
+        <div class="field">
+          <label class="label">Idade </label>
+          <input type="number" class="input is-info" name="idade" [(ngModel)]="professor.idade" required>
+        </div>
+        <div class="field">
+          <label class="label">Endereco </label>
+          <input type="text" class="input is-info" name="endereco" [(ngModel)]="professor.endereco" required>
+        </div>
+        <div class="field">
+          <label class="label">Sexo </label>
+          <select type="text" class="input is-info" name="sexo" [(ngModel)]="professor.sexo" required>
+            <option [ngValue]="'0'">MASCULINO</option>
+            <option [ngValue]="'1'">FEMININO</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="label">Salario</label>
+          <input type="text" class="input is-info" name="salario" [(ngModel)]="professor.salario">
+        </div>
+
+        <div class="field">
+          <label class="label">telefone</label>
+          <input type="text" class="input is-info" name="telefone" [(ngModel)]="professor.telefone" required>
+        </div>
+
+        <div class="field">
+          <label class="label">Area de Atuacao </label>
+          <input type="text" class="input is-info" name="areaAtuacao" [(ngModel)]="professor.areaAtuacao" required>
+        </div>
+
+      <button class="button is-success" type="submit">Cadastrar</button>
+    </ng-template>
+  </form>
+</div>
